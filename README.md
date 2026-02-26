@@ -10,11 +10,20 @@ This repository contains a containerized Flask application using a modified Inst
 
 ## Build Instructions
 
-### Prerequisites
+### 1. Prerequisites
 * Docker and Docker Compose installed.
 * A `.env.prod.db` file (and other required `.env` files) populated with your credentials. **Note: These are excluded from the repository for security.**
 
-### Running the Production Stack
-1. **Spin up the containers:**
-   ```bash
-   docker compose -f docker-compose.prod.yml up -d --build
+### 2. Environment Configuration
+For security reasons, production credentials are not stored in this repository. You must create the following files in the root directory before launching the containers to avoid a `-2` point total penalty:
+
+* `.env.prod`: General production settings (e.g., `FLASK_ENV=production`).
+* `.env.prod.db`: Database credentials including `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB`.
+
+### 3. Service Orchestration (CLI Commands)
+From your terminal, navigate to the project root and execute the following sequence:
+
+**A. Build and Start the Stack**
+This command builds the custom images for Nginx and Flask and starts all services in the background:
+```bash
+docker compose -f docker-compose.prod.yml up -d --build
