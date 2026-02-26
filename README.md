@@ -1,6 +1,6 @@
 # Flask on Docker
 
-![Build Status](https://github.com/YOUR_GITHUB_USERNAME/flask-on-docker/actions/workflows/main.yml/badge.svg)
+[![Continuous Integration](https://github.com/KaiYeung921/flask-on-docker/actions/workflows/main.yml/badge.svg)](https://github.com/KaiYeung921/flask-on-docker/actions/workflows/main.yml)
 
 ## Overview
 This repository contains a containerized Flask application using a modified Instagram tech stack. The project utilizes **Gunicorn** as the production web server, **Nginx** as a reverse proxy to handle requests and serve static/media files, and **PostgreSQL** for persistent data storage. All services are orchestrated using Docker Compose to ensure a consistent environment from development to production.
