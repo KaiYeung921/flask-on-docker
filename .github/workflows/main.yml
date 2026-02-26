@@ -1,0 +1,17 @@
+```yaml
+name: Continuous Integration
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build images
+        run: docker compose up -d --build
+
+      - name: Check running containers
+        run: docker compose ps
