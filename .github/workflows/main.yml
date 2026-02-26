@@ -1,4 +1,3 @@
-```yaml
 name: Continuous Integration
 
 on: [push]
@@ -9,6 +8,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Create dummy env files
+        run: |
+          touch .env.dev
+          touch .env.prod
+          touch .env.prod.db
 
       - name: Build images
         run: docker compose up -d --build
