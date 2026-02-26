@@ -27,3 +27,17 @@ From your terminal, navigate to the project root and execute the following seque
 This command builds the custom images for Nginx and Flask and starts all services in the background:
 ```bash
 docker compose -f docker-compose.prod.yml up -d --build
+```
+Then:
+```bash
+docker compose -f docker-compose.prod.yml exec web python manage.py create_db
+```
+### 4. Accessing the Servies
+The application is exposed via Nginx on the host port specified in your compose file (default is 1080):
+
+Main Application Interface: http://localhost:1080
+
+Static Assets: Verify Nginx is serving static files at http://localhost:1080/static/hello.txt.
+
+Media Uploads: View uploaded media files at http://localhost:1080/media/<filename>.
+
